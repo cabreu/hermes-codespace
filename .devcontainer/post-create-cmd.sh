@@ -15,4 +15,5 @@ if [ -d "$HOME/.hermes/sessions" ] && [ -z "$(ls -A "$HOME/.hermes/sessions")" ]
   hermes config set model.provider custom && hermes config set model.base_url http://localhost:7352/v1 && hermes config set model.default auto-fastest
 fi
 
-nohup modelrelay > /tmp/modelrelay.log 2>&1 &
+echo "[post-create-cmd.sh] Starting modelrelay in the background..."
+nohup /usr/local/bin/modelrelay > /tmp/modelrelay.log 2>&1 &
