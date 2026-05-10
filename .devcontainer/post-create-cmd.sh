@@ -1,7 +1,10 @@
 #!/bin/bash
 
-sudo npm install modelrelay -g --prefix /usr/local/lib/modelrelay
-sudo  ln -s  /usr/local/lib/modelrelay/bin/modelrelay /usr/local/bin/modelrelay
+(
+sudo npm install modelrelay -g --prefix /usr/local/lib/modelrelay && \
+  sudo  ln -s  /usr/local/lib/modelrelay/bin/modelrelay /usr/local/bin/modelrelay && \
+  sudo npm cache clean --force
+) &
 
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash -s -- --skip-setup && \
     npm cache clean --force && \
