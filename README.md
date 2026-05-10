@@ -6,8 +6,8 @@ A GitHub project starter template with pre-installed AI coding tools. Built on [
 
 | Component | Purpose |
 |-----------|---------|
-| **Hermes Agent** | AI coding assistant with memory, skills, and multi-step task execution |
-| **ModelRelay** | Unified model gateway — route requests across multiple LLM providers |
+| **[Hermes Agent](https://github.com/nousresearch/hermes-agent)** | AI coding assistant with memory, skills, and multi-step task execution |
+| **[ModelRelay](https://www.npmjs.com/package/modelrelay)** | OpenAI-compatible local router — benchmarks free coding models and routes requests to the best available provider |
 | **[Hermes AI Agent — VS Code Extension](https://marketplace.visualstudio.com/items?itemName=joaompfp.hermes-ai-agent)** | Full IDE integration — chat, inline suggestions, and terminal access directly in VS Code |
 
 ![Hermes in action](.devcontainer/screen-shot.png)
@@ -18,7 +18,7 @@ GitHub Copilot is great — until your free trial ends. Hermes-CodeSpace gives y
 
 ## Quick start
 
-1. **Use as template** → Click "Use this template" on GitHub
+1. **Fork the repo** → Click "Fork" on GitHub (then disconnect if needed)
 2. **Open in Codespace** → Green button → Done
 3. **Start coding** → Hermes is ready in the terminal with free models enabled
 
