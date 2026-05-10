@@ -18,7 +18,7 @@ GitHub Copilot is great — until your free trial ends. Hermes-CodeSpace gives y
 
 ## Quick start
 
-1. **Fork the repo** → Click "Fork" on GitHub (then disconnect if needed)
+1. **Fork the repo** → Click "Fork" on GitHub (or copy folder `.devcontainer` into your repo)
 2. **Open in Codespace** → Green button → Done
 3. **Start coding** → Hermes is ready in the terminal with free models enabled
 
