@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Update modelrelay to latest version on every container start
+echo "[post-start-cmd.sh] Updating modelrelay..."
+if command -v npm &>/dev/null && command -v modelrelay &>/dev/null; then
+  BEFORE=$(modelrelay --version 2>/dev/null || echo "unknown")
+  npm update -g modelrelay --quiet 2>/tmp/npm-modelrelay-update.log
+  AFTER=$(modelrelay --version 2>/dev/null || echo "unknown")
+  if [ "$BEFORE" != "$AFTER" ] && [ "$BEFORE" != "unknown" ]; then
+    echo "  modelrelay updated (${BEFORE} → ${AFTER})"
+  else
+    echo "  already up to date (${AFTER})"
+  fi
+elif command -v modelrelay &>/dev/null; then
+  echo "  npm not found, skipping update"
+else
+  echo "  modelrelay not installed, skipping update"
+fi
+
 echo "[post-start-cmd.sh] Checking modelrelay..."
 if command -v modelrelay &>/dev/null; then
   if pgrep -f modelrelay > /dev/null; then
