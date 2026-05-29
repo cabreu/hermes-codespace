@@ -39,11 +39,10 @@ if ! command -v rg &>/dev/null; then
   fi
 fi
 
-# Install hermes-agent
-HERMES_VERSION="v2026.5.7"
+# Install hermes-agent (latest from main branch)
 if ! command -v hermes &>/dev/null; then
-  echo "[post-create-cmd.sh] Installing hermes-agent ${HERMES_VERSION}..."
-  curl -fsSL "https://raw.githubusercontent.com/NousResearch/hermes-agent/${HERMES_VERSION}/scripts/install.sh" | bash -s -- --skip-setup
+  echo "[post-create-cmd.sh] Installing latest hermes-agent..."
+  curl -fsSL "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh" | bash -s -- --skip-setup
   npm cache clean --force
   sudo rm -rf /var/lib/apt/lists/* 
 fi
