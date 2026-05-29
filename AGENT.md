@@ -1,0 +1,1 @@
+Procura as notícias mais relevantes desta semana sobre Esposende, em Portugal, e cria um ficheiro html com o resumo.
