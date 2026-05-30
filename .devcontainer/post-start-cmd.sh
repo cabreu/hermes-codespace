@@ -3,9 +3,11 @@
 # Update modelrelay to latest version on every container start
 echo "[post-start-cmd.sh] Updating modelrelay..."
 if command -v npm &>/dev/null && command -v modelrelay &>/dev/null; then
-  BEFORE=$(modelrelay --version 2>/dev/null || echo "unknown")
+  # Get version from package.json (modelrelay --version starts the server, not suitable for CLI)
+  GET_NPM_VERSION='console.log(require("/usr/local/lib/modelrelay/lib/node_modules/modelrelay/package.json").version)'
+  BEFORE=$(node -e "$GET_NPM_VERSION" 2>/dev/null || echo "unknown")
   npm update -g modelrelay --quiet 2>/tmp/npm-modelrelay-update.log
-  AFTER=$(modelrelay --version 2>/dev/null || echo "unknown")
+  AFTER=$(node -e "$GET_NPM_VERSION" 2>/dev/null || echo "unknown")
   if [ "$BEFORE" != "$AFTER" ] && [ "$BEFORE" != "unknown" ]; then
     echo "  modelrelay updated (${BEFORE} → ${AFTER})"
   else
